@@ -1,14 +1,18 @@
 <h1>New review for restaurant <%= @restaurant.name %></h1>
-<h3>(app/views/reviews/new.html.erb)</h3>
+<h3>(app/views/reviews/new.html.erb) - restaurant.id =  <%= @restaurant.id %></h3>
 
 <!-- .class.downcase.pluralize => @review -> reviews -->
 
 <div class="container">
   <%= simple_form_for [@restaurant, @review] do |f| %>
+    <%= f.input :rating, collection: 0..5 %>
     <%= f.input :content %>
 
-    <%= f.submit "Save" %>
+    <!-- <%= f.submit "Save" %> version basique à moi -->
+    <%= f.submit class: 'btn btn-primary' %>
   <% end %>
+
+  <%= link_to 'Back', restaurants_path %>
 </div>
 
 <!-- <form action="/restaurants/2/reviews" method="post">
@@ -16,5 +20,3 @@
   <input type="text" name="content">
 </form>
  -->
-
-<%= link_to 'Back', restaurants_path %>

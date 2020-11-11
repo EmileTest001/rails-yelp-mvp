@@ -1,0 +1,31 @@
+<h1>List of all reviews</h1>
+<h3>app/views/reviews/index.html.erb</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Restaurant ID</th>
+      <th>Restaurant name</th>
+      <th>Rating</th>
+      <th>Content</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reviews.each do |review| %>
+      <tr>
+        <td><%= review.restaurant_id %></td>
+        <td><%= "to do" %></td>
+        <td><%= review.rating %></td>
+        <td><%= review.content %></td>
+
+        <!-- pour tests
+        <td><%= link_to 'More reviews', restaurant_reviews_path(review.restaurant.id) %></td>
+        -->
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Home', root_path %>

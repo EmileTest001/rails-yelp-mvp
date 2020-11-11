@@ -9,6 +9,10 @@ class ReviewsController < ApplicationController
 #     new_restaurant GET  /restaurants/new(.:format)                        restaurants#new
 #         restaurant GET  /restaurants/:id(.:format)                        restaurants#show
 
+  def index
+    @reviews = Review.all
+  end
+
   def new
     @review = Review.new
     @restaurant = Restaurant.find(params[:restaurant_id])
@@ -31,6 +35,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:content)
+    params.require(:review).permit(:rating, :content)
   end
 end

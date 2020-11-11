@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :restaurants, only: [:index, :new, :create, :show] do
     resources :reviews, only: [:new, :create]
   end
-end
+
+  resources :reviews, only: [:index, :new, :create]
+
 # => rails-yelp-mvp git:(master) ✗ rails routes
 # Prefix Verb URI Pattern                                       Controller#Action
 # restaurant_reviews POST /restaurants/:restaurant_id/reviews(.:format)     reviews#create
@@ -22,3 +24,4 @@ end
 #     restaurant GET  /restaurants/:id(.:format) restaurants#show
 #        reviews POST /reviews(.:format)         reviews#create
 #     new_review GET  /reviews/new(.:format)     reviews#new
+end

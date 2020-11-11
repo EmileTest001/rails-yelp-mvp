@@ -1,5 +1,5 @@
 <h1>Restaurant details</h1>
-<h3>app/views/restaurants/show.html.erb</h3>
+<h3>app/views/restaurants/show.html.erb - restaurant.id =  <%= @restaurant.id %></h3>
 
 <p id="notice"><%= notice %></p>
 
@@ -24,9 +24,10 @@
   <%= @restaurant.category %>
 </p>
 
+<h3>Reviews</h3>
 <ul>
   <% @restaurant.reviews.each do |review| %>
-    <li><%= review.content %> - <%= link_to "Destroy", review_path(review), method: :delete, data: { confirm: "T'es tu sûr ?" } %></li>
+    <li><%= "⭐️" * review.rating %> - <%= review.content %></li>
   <% end %>
 </ul>
 
