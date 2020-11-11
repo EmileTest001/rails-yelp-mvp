@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+  before_action :set_restaurant, only: [:show]
 
   # => rails-yelp-mvp git:(master) ✗ rails routes
 # Prefix Verb URI Pattern                                       Controller#Action
@@ -14,6 +15,13 @@ class RestaurantsController < ApplicationController
   end
 
   def show
+    # inutile avec l'appel de #before_action
+    # @restaurant = Restaurant.find(params[:id])
+  end
+
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_restaurant
     @restaurant = Restaurant.find(params[:id])
   end
 end
